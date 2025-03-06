@@ -10,7 +10,7 @@ gpunames=split(gpulist,',');
 gpucount=size(gpunames,1);
 
 %% Define params
-params.Scales=4;
+params.Scales=3;
 params.FilterSize=6;
 params.initialLearnRate=1e-4;
 OutVarList={"cData","clData","philData","phisData"};
