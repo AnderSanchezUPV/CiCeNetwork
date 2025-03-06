@@ -73,13 +73,13 @@ OutLayerNames{params.Scales+1}=sprintf('NN%d',params.Scales);
 % [Y,state] = forward(net,Condiciones_Contorno,YminusOne);
 switch params.Scales
     case 1
-        [Yn0,state] = forward(net,Condiciones_Contorno(:,:,:,1,:),Condiciones_Contorno(:,:,:,2,:),Condiciones_Contorno(:,:,:,3,:),YminusOne,"Outputs",OutLayerNames);
+        [Y0,Y1,state] = forward(net,Condiciones_Contorno(:,:,:,1,:),Condiciones_Contorno(:,:,:,2,:),Condiciones_Contorno(:,:,:,3,:),YminusOne,"Outputs",OutLayerNames);
 
     case 2
-        [Yn0,Yn1,state] = forward(net,Condiciones_Contorno(:,:,:,1,:),Condiciones_Contorno(:,:,:,2,:),Condiciones_Contorno(:,:,:,3,:),YminusOne,"Outputs",OutLayerNames);
+        [Y0,Y1,Y2,state] = forward(net,Condiciones_Contorno(:,:,:,1,:),Condiciones_Contorno(:,:,:,2,:),Condiciones_Contorno(:,:,:,3,:),YminusOne,"Outputs",OutLayerNames);
 
     case 3 
-        [Yn0,Yn1,Yn2,state] = forward(net,Condiciones_Contorno(:,:,:,1,:),Condiciones_Contorno(:,:,:,2,:),Condiciones_Contorno(:,:,:,3,:),YminusOne,"Outputs",OutLayerNames);
+        [Y0,Y1,Y2,Y3,state] = forward(net,Condiciones_Contorno(:,:,:,1,:),Condiciones_Contorno(:,:,:,2,:),Condiciones_Contorno(:,:,:,3,:),YminusOne,"Outputs",OutLayerNames);
 
     case 4
         [Y0,Y1,Y2,Y3,Y4,state] = forward(net,Condiciones_Contorno(:,:,:,1,:),Condiciones_Contorno(:,:,:,2,:),Condiciones_Contorno(:,:,:,3,:),YminusOne,"Outputs",OutLayerNames);

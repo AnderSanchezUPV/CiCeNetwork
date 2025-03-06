@@ -1,4 +1,4 @@
-function plotSetup = setupMeanGradientplot(weightLayerNames,numEpochs,figidx)
+function plotSetup = setupMeanGradientplot(weightLayerNames,params,figidx)
 f = figure(figidx);
 t = tiledlayout(f,"flow",TileSpacing="tight");
 t.Title.String = "Gradient Mean Value";
@@ -6,7 +6,7 @@ t.Title.String = "Gradient Mean Value";
 
 % To avoid updating the same values every epoch, set up axis 
 % information before the training loop.
-for jj=0:4        
+for jj=0:params.Scales      
     for ii = 1:6
     tiledAx = nexttile(t,ii+(6*jj));
 
@@ -25,7 +25,7 @@ for jj=0:4
     end
 end
 
-plotSetup.ColorMap = parula(numEpochs);
+plotSetup.ColorMap = parula(params.numEpochs);
 plotSetup.TiledLayout = t;
 % plotSetup=[];
 

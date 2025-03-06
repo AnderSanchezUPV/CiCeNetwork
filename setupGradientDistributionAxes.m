@@ -1,4 +1,4 @@
-function plotSetup = setupGradientDistributionAxes(weightLayerNames,numLearnables,numEpochs,figidx)
+function plotSetup = setupGradientDistributionAxes(weightLayerNames,params,figidx)
 f = figure(figidx);
 t = tiledlayout(f,"flow",TileSpacing="tight");
 t.Title.String = "Gradient Distributions";
@@ -13,7 +13,7 @@ for i = 1 : numel(weightLayerNames)
     ylabel(tiledAx,"Epochs");
     zlabel(tiledAx,"Counts");
     grid(tiledAx,"on")
-    title(tiledAx,sprintf("%s (%d)",weightLayerNames(i),numLearnables(i)));
+    title(tiledAx,sprintf("%s (%d)",weightLayerNames(i),params.numLearnables(i)));
 
     % Rotate the view.
     view(tiledAx, [-130, 50]);
@@ -21,6 +21,6 @@ for i = 1 : numel(weightLayerNames)
     ylim(tiledAx,[1,Inf]);
 end
 
-plotSetup.ColorMap = parula(numEpochs);
+plotSetup.ColorMap = parula(params.numEpochs);
 plotSetup.TiledLayout = t;
 end
